@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import BodyContainer from './components/BodyContainer';
-import Header from './head/Header';
 import $ from 'jquery';
 
 class App extends Component {
@@ -63,22 +62,16 @@ class App extends Component {
     return (
       <div className="App">
           <div>
-            <Header isMainPageShowing={this.state.isMainPageShowing} 
-                    searchKeyWords={this.state.searchKeyWords}
-                    listOfMovies={this.state.listOfMovies}
-                    handleChange={(e) => this.handleChange(e)}
-                    handleMovieSubmit={(e) => this.handleMovieSubmit(e)}
-                    handleBackToHome={() => this.handleBackToHome()}
-                    handleBackToSearchList={() => this.handleBackToSearchList()}
-                    isSearchListShowing={this.state.isSearchListShowing}
-                    isMovieCardShowing={this.state.isMovieCardShowing}
-                    >
-            </Header>
             <BodyContainer isMainPageShowing={this.state.isMainPageShowing} 
                           searchKeyWords={this.state.searchKeyWords} 
                           listOfMovies={this.state.listOfMovies}
                           isSearchListShowing={this.state.isSearchListShowing}
-                          isMovieCardShowing={this.state.isMovieCardShowing}>
+                          isMovieCardShowing={this.state.isMovieCardShowing}
+                          handleChange={(e) => this.handleChange(e)}
+                          handleMovieSubmit={(e) => this.handleMovieSubmit(e)}
+                          handleBackToHome={() => this.handleBackToHome()}
+                          handleBackToSearchList={() => this.handleBackToSearchList()}
+                          >
             </BodyContainer>
           </div>
       </div>

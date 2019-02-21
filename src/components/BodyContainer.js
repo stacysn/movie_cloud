@@ -71,7 +71,20 @@ class BodyContainer extends Component {
       }) 
       return (
         <div>
-          { popularMovies }
+          <header>
+            <div className="search-bar">
+              <form onSubmit={this.props.handleMovieSubmit}>
+                <label>
+                  <h3> Search Movie: </h3>
+                  <input type="text" name="movieName" value={this.props.searchKeyWords} onChange={this.props.handleChange} />
+                </label>
+                <input type="submit" value="Submit"/>
+              </form>
+            </div>      
+          </header>
+          <div>
+            { popularMovies }
+          </div>
         </div>
       )
     } 
@@ -88,6 +101,7 @@ class BodyContainer extends Component {
     if (this.props.isSearchListShowing === true) {
       return (
         <div>
+          <button onClick={this.props.handleBackToHome}>Back to Main Page</button>
           <SearchList movie={this.state.movie} 
                       searchKeyWords={this.props.searchKeyWords} 
                       listOfMovies={this.props.listOfMovies}>
