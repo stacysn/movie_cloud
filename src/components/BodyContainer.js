@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MovieCard from './MovieCard';
 import SearchList from './SearchList';
 import $ from 'jquery'
-import { Card, Row, Col, CardTitle, CardImg } from 'reactstrap';
+import { Card, Row, CardImg } from 'reactstrap';
 
 class BodyContainer extends Component {
   constructor(props){
@@ -75,11 +75,9 @@ class BodyContainer extends Component {
           return (
             <div className='movie-list' key={index}>
               <Row id={movie.id}>
-                
                   <Card body id={movie.id} onClick={() => this.loadMovieCard(movie)} >
-                    <CardImg top width="50%" src={movie[2]} alt="Card image cap" />
-                  </Card>
-                
+                  <CardImg top width="50%" src={movie[2]} alt="Card image cap" />
+                  </Card>     
               </Row>
             </div>
           )
@@ -89,7 +87,7 @@ class BodyContainer extends Component {
       evenMovies.push(popularEvenMovies);
       return (
         <div>
-          <header>
+          
             <div className="search-bar">
               <form onSubmit={this.props.handleMovieSubmit}>
                 <label>
@@ -99,7 +97,7 @@ class BodyContainer extends Component {
                 <input type="submit" value="Submit"/>
               </form>
             </div>      
-          </header>
+          
           <div>
             <h2>Today's Popular Movies</h2>
             <div  className='row'>

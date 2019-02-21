@@ -52,17 +52,11 @@ class App extends Component {
     this.setState({ isMovieCardShowing: false });
   }
 
-  handleBackToSearchList(){
-    this.setState({ isSearchListShowing: true });
-    this.setState({ isMovieCardShowing: false });
-    this.setState({ isMainPageShowing: false });
-  }
-
   render() {
     return (
       <div className="App">
           <div>
-            <header>Movie Searcher</header>
+            <header>Movie Cloud</header>
             <BodyContainer isMainPageShowing={this.state.isMainPageShowing} 
                           searchKeyWords={this.state.searchKeyWords} 
                           listOfMovies={this.state.listOfMovies}
@@ -71,7 +65,6 @@ class App extends Component {
                           handleChange={(e) => this.handleChange(e)}
                           handleMovieSubmit={(e) => this.handleMovieSubmit(e)}
                           handleBackToHome={() => this.handleBackToHome()}
-                          handleBackToSearchList={() => this.handleBackToSearchList()}
                           >
             </BodyContainer>
           </div>

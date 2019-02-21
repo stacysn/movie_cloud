@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { Card, CardText, CardTitle, CardImg } from 'reactstrap';
 
 class MovieCard extends Component {
   render() {
     return (
       <div className='row'> 
         <div className='col-sm-6'>            
-          <img top width="50%" src={this.props.movie[2]} alt="Card image cap" />
+          <img top width="50%" src={this.props.movie[2]} alt="Card cap" />
         </div>
         <div className='col-sm-6'>
           <h1>{this.props.movie[0]}</h1>

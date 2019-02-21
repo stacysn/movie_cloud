@@ -11,7 +11,12 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: #FFFFFF;
+  color: #E28413;
+  font-family: 'Playfair Display', serif;
+}
+
+header{
+  font-size: calc(66px + 2vmin)
 }
 
 .movie-list {
@@ -20,7 +25,8 @@
 }
 
 .card-body {
-  padding: 0
+  margin: 20px;
+
 }
 
 @media (min-width: 576px){
