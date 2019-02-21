@@ -55,20 +55,38 @@ class BodyContainer extends Component {
   render() {
     // landing page with list of popular movies
     if (this.props.isMainPageShowing && this.state.isCardNotClicked && this.state.page === null){
-      let popularMovies = this.state.movies.map((movie, index) => {
-        return (
-          <div className='movie-list' key={index}>
-            <Row id={movie.id}>
-              <Col sm="4" id={movie.id}>
-                <Card body id={movie.id} onClick={() => this.loadMovieCard(movie)} >
-                  <CardImg top width="50%" src={movie[2]} alt="Card image cap" />
-                  <CardTitle id={movie.id}>{movie[0]}</CardTitle>
-                </Card>
-              </Col>
-            </Row>
-          </div>
-        )
+      let oddMovies = []; // left column
+      let evenMovies = []; // right column
+      let popularOddMovies = this.state.movies.map((movie, index) => {
+        if (index % 2) {
+          return (
+            <div className='movie-list' key={index}>
+              <Row id={movie.id}>
+                  <Card body id={movie.id} onClick={() => this.loadMovieCard(movie)} >
+                    <CardImg top width="50%" src={movie[2]} alt="Card image cap" />
+                  </Card>
+              </Row>
+            </div>
+          )
+        }
       }) 
+      let popularEvenMovies = this.state.movies.map((movie, index) => {
+        if (!(index % 2)) {
+          return (
+            <div className='movie-list' key={index}>
+              <Row id={movie.id}>
+                
+                  <Card body id={movie.id} onClick={() => this.loadMovieCard(movie)} >
+                    <CardImg top width="50%" src={movie[2]} alt="Card image cap" />
+                  </Card>
+                
+              </Row>
+            </div>
+          )
+        }
+      }) 
+      oddMovies.push(popularOddMovies);
+      evenMovies.push(popularEvenMovies);
       return (
         <div>
           <header>
@@ -83,7 +101,12 @@ class BodyContainer extends Component {
             </div>      
           </header>
           <div>
-            { popularMovies }
+            <h2>Today's Popular Movies</h2>
+            <div  className='row'>
+              <div className='col-sm-6'> { oddMovies } </div>
+              <div className='col-sm-6'> { evenMovies } </div> 
+
+            </div>
           </div>
         </div>
       )

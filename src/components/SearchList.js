@@ -18,26 +18,51 @@ class SearchList extends Component {
 
   render() {
     if (this.state.loadCard === 1) {
-      const movieList = this.props.listOfMovies.map((movieListItem, index) => {
-        return (
-          <div className='movie-list' key={index}>
-            <Row>
-              <Col sm="4">
-                <Card className='card' onClick={() => this.loadMovieCard(movieListItem)}>
-                  <CardImg top width="50%" src={movieListItem[2]} alt="Card image cap" />
-                  <CardTitle>{movieListItem[0]}</CardTitle>
-                </Card>
-              </Col>
-            </Row>
-          </div>
-        )
+      let oddMovies = []; // left column
+      let evenMovies = []; // right column
+      let oddMovieList = this.props.listOfMovies.map((movieListItem, index) => {
+        if (index % 2) {
+          return (
+            <div className='movie-list' key={index}>
+              <Row>
+                
+                  <Card className='card' onClick={() => this.loadMovieCard(movieListItem)}>
+                    <CardImg top width="50%" src={movieListItem[2]} alt="Card image cap" />
+                    <CardTitle>{movieListItem[0]}</CardTitle>
+                  </Card>
+                
+              </Row>
+            </div>
+          )
+        }
       })
-      return (
+      let evenMovieList = this.props.listOfMovies.map((movieListItem, index) => {
+        if (!(index % 2)) {
+          return (
+            <div className='movie-list' key={index}>
+              <Row>
+                
+                  <Card className='card' onClick={() => this.loadMovieCard(movieListItem)}>
+                    <CardImg top width="50%" src={movieListItem[2]} alt="Card image cap" />
+                    <CardTitle>{movieListItem[0]}</CardTitle>
+                  </Card>
+                
+              </Row>
+            </div>
+          )
+        }
+        })
+        oddMovies.push(oddMovieList);
+        evenMovies.push(evenMovieList);
+        return (
         <div>
-          { movieList }
+          <h2> Results for {this.props.searchKeyWords}</h2>
+          <div className='row'>
+            <div className='col-sm-6'>{oddMovies}</div>
+            <div className='col-sm-6'>{evenMovies}</div>
+          </div>
         </div>
       )
-
     } 
      if (this.state.loadCard === 2) {
       return (

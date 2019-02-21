@@ -62,6 +62,7 @@ class App extends Component {
     return (
       <div className="App">
           <div>
+            <header>Movie Searcher</header>
             <BodyContainer isMainPageShowing={this.state.isMainPageShowing} 
                           searchKeyWords={this.state.searchKeyWords} 
                           listOfMovies={this.state.listOfMovies}
