@@ -6,9 +6,9 @@ This react app makes API calls to a third party site called [the Movie DB](https
 ### Available Scripts
 
 In the project directory, you can run:
-### `npm install`
+#### `npm install` - installs dependencies
 
-### `npm start`
+#### `npm start` - starts the application
 
 ## Tools Used: 
 - React
